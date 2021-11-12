@@ -5,6 +5,10 @@ from nuscenes.utils.data_classes import LidarPointCloud, RadarPointCloud
 from pyquaternion import Quaternion
 from typing import List
 
+
+def load_bounding_boxes_annotations():
+    pass
+
 def load_sample_tokens_in_scene(nusc: NuScenes, scene: str) -> List[str]:
     """Function that loads all the sample tokens that are in a determined
     scene.
@@ -57,7 +61,6 @@ def load_radar_pc(nusc: NuScenes, sample_token: str, filepath: str) -> np.ndarra
     # Create a dict in which tokens for each radar token in the sample are loaded.
     channel_tokens = dict()
     for k, v in sample["data"].items():
-        print(f"{k}: {v}")
         if k in channels:
            channel_tokens[k] = v
 
