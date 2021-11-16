@@ -256,7 +256,15 @@ def classify_clusters_o3d(cloud: object, labels: np.ndarray) -> Tuple[list, list
             clusters[labels[i]].append(point)
     for el in clusters:
         el = np.vstack(el)
-    cluster_objects = [Cluster(np.asarray(el), sensor='radar') for el in clusters]
+    # cluster_objects = [Cluster(np.asarray(el), sensor='radar') for el in clusters]
 
-    return (cluster_objects, indices)
+    for cluster in clusters:
+        print(type(cluster))
+        cluster = np.asarray(cluster)
+        # for (i, el) in enumerate(cluster):
+            # new_cluster = el if i == 0 else np.vstack((new_cluster, el))
+        # cluster = new_cluster
+        print(type(cluster))
+
+    return (clusters, indices)
     
